@@ -8,6 +8,13 @@ const connect = function() {
   conn.setEncoding('utf8'); 
 
   conn.on("data", (data) => {console.log(data)})
+
+  conn.on("connect", () => {
+    console.log("Connection established. Connected to server")
+  });
+  conn.on('connect', () => {
+    conn.write('Name: MSC');
+  });
   
   return conn;
 };
